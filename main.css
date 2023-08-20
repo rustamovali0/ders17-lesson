@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.boxModel, body .container header .boxes .boxLast, body .container header .boxes .box {
+  height: 5vh;
+  width: 10vw;
+  background-color: #020101;
+  color: #1fe605;
+  text-align: center;
+  border-radius: 6px;
+  line-height: 4vh;
+}
+
+.boxModelGrid, body .container .parent .child {
+  height: 200px;
+  background-color: #0ccbec;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  line-height: 4vh;
+  margin: 0px 10px;
+  font-size: 30px;
+  padding-top: 80px;
+}
+
+body {
+  background-color: #ccc;
+}
+body .container {
+  height: 100vh;
+  background-color: #020101;
+}
+body .container header {
+  height: 10vh;
+  width: 100%;
+  background-color: #1fe605;
+}
+body .container header ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+body .container header ul li {
+  list-style: none;
+}
+body .container header ul li a {
+  text-decoration: none;
+  padding: 20px;
+  font-size: 24px;
+  transition: 0.5s ease-in-out;
+  color: #020101;
+}
+body .container header ul li a:hover {
+  color: #0ccbec;
+}
+body .container header .boxes {
+  height: 100%;
+  background-color: #0ccbec;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container header .boxes .box {
+  border-width: 3px;
+  border-style: solid;
+  border-color: blue;
+}
+body .container header .boxes .boxLast {
+  border-width: 8px;
+  border-style: dashed;
+  border-color: rgb(13, 199, 255);
+}
+body .container .parent {
+  display: grid;
+  gap: 1.5rem;
+  margin: 200px 100px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}/*# sourceMappingURL=main.css.map */

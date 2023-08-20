@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$bColor:#ccc ;
+$container:#020101 !default;
+$header:#1fe605 !default;
+$box:#0ccbec !default;
+$border:#db17db !default;
+//extend
+.boxModel{
+    height: 5vh;
+    width: 10vw;
+    background-color: $container;
+    color:$header;
+    text-align: center;
+    border-radius: 6px;
+    line-height: 4vh;
+}
+.boxModelGrid{
+
+    height: 200px;
+    background-color: $box;
+    color:black;
+    text-align: center;
+    border-radius: 6px;
+    line-height: 4vh;
+    margin: 0px 10px;
+    font-size: 30px;
+    padding-top: 80px;
+}
+//MIXIN
+@mixin borderStyle($width,$style,$color){
+
+border-width: $width;
+border-style: $style;
+border-color: $color;
+    
+}
+@mixin flexStyle($value){
+display: flex;
+align-items: center;
+justify-content: $value;
+}
+
+@mixin gridStyle($value,$value2){
+    display: grid;
+gap: 1.5rem; 
+margin: 200px 100px; 
+grid-template-columns: repeat(auto-fit,minmax($value,$value2));
+}
+body{
+    background-color: $bColor;
+    .container{
+        height: 100vh;
+        background-color: $container;
+        header{
+            height: 10vh;
+            width: 100%;
+            background-color: $header;
+            
+            ul{
+                height: 100%;
+                // display: flex;
+                // align-items: center;
+                // justify-content: space-around;
+                @include flexStyle(space-around);
+                li{
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        padding: 20px;
+                        font-size: 24px;
+                        transition: .5s ease-in-out;
+                        color: $container;
+
+
+                        &:hover{
+                            color:$box;
+                        }
+                    }
+                }
+            }
+
+            .boxes{
+                height: 100%;
+                background-color: $box;
+                margin-top: 30px;
+                // display: flex;
+                // align-items: center;
+                // justify-content: space-between;
+                @include flexStyle(center);
+
+                .box{
+                     @extend .boxModel;
+                     @include borderStyle(3px,solid,blue);
+                }
+                .boxLast{
+                    @extend .boxModel;
+                    @include borderStyle(8px,dashed,rgb(13, 199, 255));
+                }
+            }
+        }
+        .parent{
+            @include gridStyle(300px,1fr);
+            .child{
+   @extend .boxModelGrid;
+            }
+        }
+    }
+
+
+}
